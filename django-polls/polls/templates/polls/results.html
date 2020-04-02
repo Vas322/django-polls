@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>My Polls</title>
+</head>
+<body>
+	<ul>
+		{% for choice in question.choice_set.all %}
+		<li>{{ choice.choice_text }} -- {{ choice.votes }} {{ choice.vote|pluralize }} балл</li>
+		{% endfor %}
+	</ul>
+
+	<a href="{% url 'polls:detail' question.id %}">Еще вопрос?</a>
+</body>
+</html>
